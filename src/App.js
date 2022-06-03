@@ -1,5 +1,4 @@
-import CategoryItem from "./components/category-item/category-item.component"
-
+import CategoryMenu from "./components/category-menu/category-menu.component";
 
 const App = ()=>{
   const categories = [
@@ -30,11 +29,7 @@ const App = ()=>{
     }
   ]
   return (
-    <div className="categories-container">
-      {categories.map((category)=>(
-        <CategoryItem key={category.id} category={category}/>
-      ))}
-    </div>
+    <CategoryMenu categories={categories}/>
   );
 }
 
