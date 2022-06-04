@@ -1,3 +1,4 @@
+import {Outlet} from "react-router-dom"
 import CategoryMenu from "../../components/category-menu/category-menu.component";
 
 const Home = ()=>{
@@ -29,7 +30,11 @@ const Home = ()=>{
     }
   ]
   return (
-    <CategoryMenu categories={categories}/>
+      <div>
+          <CategoryMenu categories={categories}/>
+          <Outlet/>
+      </div>
+    
   );
 }
 
