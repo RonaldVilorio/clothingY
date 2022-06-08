@@ -25,6 +25,11 @@ const SignInForm = () => {
         try{
             return await signInAuthUserWithEmailAndPassword(email,password)
         }catch(err){
+            if(err.code === 'auth/wrong-password'){
+                alert('incorrect password for email')
+            }else if(err.code === 'auth/user-not-found' ){
+                alert("No user for this email")
+            }
             console.log(err)
         }
     }
@@ -51,8 +56,10 @@ const SignInForm = () => {
                       onChange={handleChange} 
                       required />
                 <div className='buttons-container'>
-                  <Button type="submit">Sign In</Button>
-                  <Button buttonType="google" onClick={logGoogleUser}>Sign in with Google</Button>
+                    <Button type='submit'>SIGN IN</Button>
+                    <Button type='button'buttonType="google" onClick={logGoogleUser}>
+                      GOOGLE SIGN IN
+                    </Button>
                 </div>
             </form>
         </div>
