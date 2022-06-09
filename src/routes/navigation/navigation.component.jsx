@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/user.context"
 
 const Navigation = ()=>{
     const {currentUser} = useContext(UserContext)
-    console.log(currentUser)
+    
     return(
         <Fragment>
             <div className="navigation">
@@ -17,9 +17,16 @@ const Navigation = ()=>{
                     <Link className ="nav-link" to="/shop">
                         Shop
                     </Link>
-                    <Link className ="nav-link" to="/sign-in">
-                        Sign In
-                    </Link>
+                    {
+                        currentUser ? (
+                            <span className='nav-link'>Sign Out</span>                             
+                        ):(
+                        <Link className ="nav-link" to="/sign-in">
+                            Sign In
+                        </Link>
+                        )
+                    }
+                    
                 </div>
                 
                     
