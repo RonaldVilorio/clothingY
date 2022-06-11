@@ -1,25 +1,15 @@
-import { createContext,useState, useEffect} from "react";
+import { createContext,useState} from "react";
 import PRODUCTS from '../shop-data.json'
 
 export const ProductsContext = createContext({
     products:[],
-    setProducts:null
+    setProducts:()=>null
 })
 
 export const ProductsProvider =({children})=>{
-    const [products,setProducts] = useState(PRODUCTS)
+    const [products] = useState(PRODUCTS)
     const value = {products}
 
-    // useEffect(()=>{
-        // API call to get products
-    //     const cleanup = onAuthStateChangedListener((user)=>{
-    //         if(user){
-    //             createUserDocumentFromAuth(user)
-    //         }            
-    //         setCurrentUser(user)
-    //     })
-    //     return cleanup
-    // },[])
     return (
         <ProductsContext.Provider value={value}>
             {children}

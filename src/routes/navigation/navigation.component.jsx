@@ -3,10 +3,12 @@ import {Outlet,Link} from "react-router-dom"
 import {ReactComponent as YLogo} from "../../assets/crown.svg"
 import "./navigation.styles.scss"
 import { UserContext } from "../../contexts/user.context"
+import { CartDropDownContext } from "../../contexts/cart-drop-down.context"
 import CartIcon from "../../components/cart-icon/cart-icon.component"
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component"
 const Navigation = ()=>{
     const {currentUser} = useContext(UserContext)
+    const {cartDropDown} = useContext(CartDropDownContext)
 
     return(
         <Fragment>
@@ -29,7 +31,11 @@ const Navigation = ()=>{
                     }
                     <CartIcon/>
                 </div>
-                <CartDropDown/>              
+                {
+                    cartDropDown &&
+                    <CartDropDown/>
+                }
+                              
             </div>
             <Outlet/>
         </Fragment>
