@@ -4,7 +4,7 @@ import {ReactComponent as YLogo} from "../../assets/crown.svg"
 import "./navigation.styles.scss"
 import { UserContext } from "../../contexts/user.context"
 import CartIcon from "../../components/cart-icon/cart-icon.component"
-
+import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component"
 const Navigation = ()=>{
     const {currentUser} = useContext(UserContext)
 
@@ -28,8 +28,8 @@ const Navigation = ()=>{
                         )
                     }
                     <CartIcon/>
-                    
-                </div>               
+                </div>
+                <CartDropDown/>              
             </div>
             <Outlet/>
         </Fragment>
