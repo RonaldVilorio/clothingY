@@ -1,9 +1,9 @@
 import { createContext,useState } from "react";
 
 const addCartItem = (cartItems,productToAdd) =>{
-    if (!productToAdd || !cartItems) return
-
+    
     const found = cartItems.find(product=>product.id === productToAdd.id)
+    
     if(found){
         return cartItems.map((product)=>(
             product.id === productToAdd.id 
@@ -11,7 +11,7 @@ const addCartItem = (cartItems,productToAdd) =>{
             : product
         ))
     }
-    return [...cartItems,{...found,quantity:1}]
+    return [...cartItems,{...productToAdd,quantity:1}]
 }
 
 export const CartDropDownContext = createContext({
