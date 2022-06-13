@@ -1,33 +1,37 @@
 import { useContext } from "react";
 import { CartDropDownContext } from "../../contexts/cart-drop-down.context";
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import './checkout.styles.scss'
 const CheckOut = () => {
-    const {cartItems,addItemToCart,removeItemFromCart} = useContext(CartDropDownContext)
+    const {cartItems} = useContext(CartDropDownContext)
     
     return (
-        <div>
+        <div className='checkout-container'>
+            <div className='checkout-header'>
+                <div className='header-block'>
+                    <span>Product</span>
+                </div>
+                <div className='header-block'>
+                    <span>Description</span>
+                </div>
+                <div className='header-block'>
+                    <span>Quantity</span>
+                </div>
+                <div className='header-block'>
+                    <span>Price</span>
+                </div>
+                <div className='header-block'>
+                    <span>Remove</span>
+                </div>
+            </div>
             {
-                cartItems.map((item)=>{
-                     const {id,name,price,quantity,imageUrl} = item
+                cartItems.map((cartItem)=>{
                     return(
-                    <div key={id} className='items-container'>
-                        
-                        <div className='item'>                            
-                            <br/>
-                            <img src={imageUrl} alt={name} />
-                            <span>{name}</span>
-                            <span>
-                                <button onClick={()=>{removeItemFromCart(item)}}>{'<'}</button> 
-                                    {quantity}
-                                <button onClick={()=>{addItemToCart(item)}}>{'>'}</button>
-                            </span>
-                            <span>{price}</span>
-                            <span> <button>X</button> </span>
-                        </div>
-                    </div>
+                    <CheckoutItem key={cartItem.id} cartItem={cartItem} />
                     )
                 })
             }
+            <div className='total'>Total: 0</div>
         </div>
     )                    
 }

@@ -9,7 +9,8 @@
     background-color: white; 
     top: 90px; 
     right: 40px; 
-    z-index: 5; .empty-message { 
+    z-index: 5; 
+    .empty-message { 
         font-size: 18px; 
         margin: 50px auto; 
     }
@@ -18,7 +19,8 @@
         display: flex; 
         flex-direction: column; 
         overflow: scroll; 
-    } button { 
+    } 
+    button { 
         margin-top: auto; 
     } 
 }
