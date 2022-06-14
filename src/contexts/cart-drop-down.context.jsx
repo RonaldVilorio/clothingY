@@ -29,6 +29,10 @@ const removeCartItem = (cartItems,productToRemove)=>{
     }
     
 }
+const clearCartItem = (cartItems,productToClear)=>{
+    return cartItems.filter((cartItem)=>cartItem.id !== productToClear.id)
+}
+// const totalPrice = cartItems.reduce((acc,cur)=>acc + cur.price*cur.quantity,0)
 
 export const CartDropDownContext = createContext({
     cartDropDown:false,
@@ -39,7 +43,6 @@ export const CartDropDownContext = createContext({
     cartCount:0,
     setCartCount: ()=>{},
 
-
 })
 
 export const CartDropDownProvider =({children})=>{
@@ -48,6 +51,7 @@ export const CartDropDownProvider =({children})=>{
     const [cartCount,setCartCount] = useState(0)
 
 // render every time the cartItems(2nd arg of useEffect) array changes
+// like componentDidMount
     useEffect(()=>{
         const totalItems = cartItems.reduce((acc,curItem)=>{
             if(curItem.quantity){
@@ -64,6 +68,9 @@ export const CartDropDownProvider =({children})=>{
     const removeItemFromCart=(productToRemove)=>{
         setCartItems(removeCartItem(cartItems,productToRemove))
     }
+    const clearItemFromCart =(productToClear)=>{
+        setCartItems(clearCartItem(cartItems,productToClear))
+    }
 
     const value = {
         cartDropDown,
@@ -72,6 +79,7 @@ export const CartDropDownProvider =({children})=>{
         addItemToCart,
         removeItemFromCart,
         cartCount,
+        clearItemFromCart
        
     }
     return(
