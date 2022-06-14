@@ -42,6 +42,8 @@ export const CartDropDownContext = createContext({
     removeItemFromCart: ()=>{},
     cartCount:0,
     setCartCount: ()=>{},
+    cartTotal:0,
+    setCartTotal: ()=>{}
 
 })
 
@@ -49,6 +51,7 @@ export const CartDropDownProvider =({children})=>{
     const [cartDropDown,setCartDropDown] = useState(false)
     const [cartItems,setCartItems] = useState([])
     const [cartCount,setCartCount] = useState(0)
+    const [cartTotal,setCartTotal] = useState(0)
 
 // render every time the cartItems(2nd arg of useEffect) array changes
 // like componentDidMount
@@ -59,6 +62,14 @@ export const CartDropDownProvider =({children})=>{
             }        
         },0)
         setCartCount(totalItems)
+    },[cartItems])
+
+    useEffect(()=>{
+        const cartTotal = cartItems.reduce((acc,curItem)=>{
+                return acc + curItem.price*curItem.quantity  
+                
+        },0)
+        setCartTotal(cartTotal)
     },[cartItems])
 
     
@@ -78,8 +89,9 @@ export const CartDropDownProvider =({children})=>{
         cartItems,
         addItemToCart,
         removeItemFromCart,
+        clearItemFromCart,
         cartCount,
-        clearItemFromCart
+        cartTotal
        
     }
     return(

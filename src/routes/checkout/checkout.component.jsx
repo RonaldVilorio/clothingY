@@ -3,7 +3,7 @@ import { CartDropDownContext } from "../../contexts/cart-drop-down.context";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import './checkout.styles.scss'
 const CheckOut = () => {
-    const {cartItems} = useContext(CartDropDownContext)
+    const {cartItems,cartTotal} = useContext(CartDropDownContext)
     
     return (
         <div className='checkout-container'>
@@ -31,7 +31,7 @@ const CheckOut = () => {
                     )
                 })
             }
-            <div className='total'>Total: 0</div>
+            <div className='total'>Total: ${cartTotal}</div>
         </div>
     )                    
 }
