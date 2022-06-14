@@ -2,29 +2,29 @@ import { createContext,useEffect,useState} from "react";
 import SHOP_DATA from '../shop-data'
 import { addCollectionAndDocuments,getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
-export const ProductsContext = createContext({
-    products:[],
-    setProducts:()=>null
+export const CategoriesContext = createContext({
+    categoriesMap:[],
+    setCategoriesMap:()=>null
 })
 
-export const ProductsProvider =({children})=>{
-    const [products] = useState([])
+export const CategoriesProvider =({children})=>{
+    const [categoriesMap,setCategoriesMap] = useState({})
     useEffect(()=>{
         const getCategoriesMap = async ()=>{
             const categoryMap = await getCategoriesAndDocuments();
-            console.log(categoryMap)
+            setCategoriesMap(categoryMap)
         }
         getCategoriesMap()
     },[])
-    const value = {products}
+    const value = {categoriesMap}
     // Only to run once to populate firestore db, maintain commented out
     // useEffect(()=>{
     //     addCollectionAndDocuments('categories',SHOP_DATA)
     // },[])
 
     return (
-        <ProductsContext.Provider value={value}>
+        <CategoriesContext.Provider value={value}>
             {children}
-        </ProductsContext.Provider>
+        </CategoriesContext.Provider>
     )
 }
