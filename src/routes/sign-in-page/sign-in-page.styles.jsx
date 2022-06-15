@@ -1,6 +1,9 @@
-.sign-in-up-container{
+import styled from 'styled-components'
+
+export const signInUpContainer = styled.div`
     display: flex;
     width: 900px;
     justify-content: space-between;
     margin: 30px auto;
-}
+
+`

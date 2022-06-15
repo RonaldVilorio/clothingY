@@ -1,12 +1,15 @@
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
-import './sign-in-page.styles.scss'
+import { Fragment } from "react";
+import {signInUpContainer} from './sign-in-page.styles'
 const SignIn = () => {
-    return ( 
-    <div className='sign-in-up-container'>
-        <SignInForm/>
-        <SignUpForm/>
-    </div> 
+    return (
+        <Fragment>
+            <signInUpContainer>
+                <SignInForm/>
+                <SignUpForm/>
+            </signInUpContainer> 
+        </Fragment>
     );
 }
  
