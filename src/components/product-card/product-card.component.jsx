@@ -2,12 +2,10 @@ import Button,{BUTTON_TYPE_CLASSES} from '../button/button.component';
 import { useContext } from 'react';
 import { CartDropDownContext } from '../../contexts/cart-drop-down.context';
 import {
-    ProductCardContainer,
-    Image,
+    ProductCartContainer,
     Footer,
     Name,
     Price
-
 }from './product-card.styles'
 
 const ProductCard = ({product}) => {
@@ -16,8 +14,8 @@ const ProductCard = ({product}) => {
     const addProductToCart = ()=>addItemToCart(product)
     
     return (
-        <ProductCardContainer>
-            <Image src={imageUrl} alt={name}/>
+        <ProductCartContainer>
+            <img src={imageUrl} alt={name}/>
             <Footer>
                 <Name>{name}</Name>                
                 <Price>{price}</Price>
@@ -27,7 +25,7 @@ const ProductCard = ({product}) => {
                 onClick={addProductToCart}>
                 Add to Cart
             </Button>
-        </ProductCardContainer> 
+        </ProductCartContainer> 
 
      );
 }
