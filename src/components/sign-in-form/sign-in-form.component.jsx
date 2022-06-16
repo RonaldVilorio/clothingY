@@ -1,8 +1,8 @@
 import FormInput from "../form-input/form-input.component";
 import Button,{BUTTON_TYPE_CLASSES} from "../button/button.component";
-import { useState, useContext } from "react";
-import { signInwithGooglePopup,createUserDocumentFromAuth,signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase.utils";
-import {HeadingTwo,SignInContainer,ButtonsContainer} from './sign-in-form.styles'
+import { useState} from "react";
+import { signInwithGooglePopup,signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase.utils";
+import {SignInContainer,ButtonsContainer} from './sign-in-form.styles'
 
 const defaultFormFields = {
     email:'',
@@ -27,7 +27,7 @@ const SignInForm = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try{
-            const {user} = await signInAuthUserWithEmailAndPassword(email,password)        
+            await signInAuthUserWithEmailAndPassword(email,password)        
             resetFormFields();
         }catch(err){        
             if(err.code === 'auth/wrong-password'){
@@ -41,7 +41,7 @@ const SignInForm = () => {
     
     return (
         <SignInContainer>
-            <HeadingTwo>Already have an account?</HeadingTwo>
+            <h2>Already have an account?</h2>
             <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                   <FormInput
