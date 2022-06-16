@@ -2,7 +2,7 @@ import FormInput from "../form-input/form-input.component";
 import Button,{BUTTON_TYPE_CLASSES} from "../button/button.component";
 import { useState, useContext } from "react";
 import { signInwithGooglePopup,createUserDocumentFromAuth,signInAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase.utils";
-import {HeadingTwo,SignInContainer,ButtonsContainer} from './sign-in-form'
+import {HeadingTwo,SignInContainer,ButtonsContainer} from './sign-in-form.styles'
 
 const defaultFormFields = {
     email:'',

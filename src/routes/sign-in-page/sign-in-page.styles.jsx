@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const signInUpContainer = styled.div`
+export const SignInUpContainer = styled.div`
     display: flex;
     width: 900px;
     justify-content: space-between;
