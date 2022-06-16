@@ -2,9 +2,9 @@
 import { useContext } from 'react'
 import { CartDropDownContext } from '../../contexts/cart-drop-down.context'
 import {
-    cartIconContainer,
-    shoppingIconStyle,
-    itemCount} from  './cart-icon.styles'
+    CartIconContainer,
+    ShoppingIconStyle,
+    ItemCount} from  './cart-icon.styles'
 
 const CartIcon = () => {
     const {cartDropDown,setCartDropDown,cartCount} = useContext(CartDropDownContext)
@@ -12,10 +12,10 @@ const CartIcon = () => {
     const handleClick = ()=> setCartDropDown(!cartDropDown)
     
     return ( 
-        <cartIconContainer>
-            <shoppingIconStyle onClick={handleClick}></shoppingIconStyle>
-            <itemCount>{cartCount}</itemCount>    
-        </cartIconContainer>
+        <CartIconContainer>
+            <ShoppingIconStyle onClick={handleClick}></ShoppingIconStyle>
+            <ItemCount>{cartCount}</ItemCount>    
+        </CartIconContainer>
      );
 }
 

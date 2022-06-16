@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-export const cartItemContainer = styled.div`
+export const CartItemContainer = styled.div`
     width: 100%; 
     display: flex; 
     height: 80px; 
@@ -21,16 +21,3 @@ export const ItemDetails = styled.div`
 export const Name = styled.span`
     font-size: 16px; 
 `
-
-// .cart-item-container { 
-//     
-//     img { 
-//         
-//     } 
-//     .item-details { 
-//         
-//         .name { 
-//              
-//         } 
-//     } 
-// }

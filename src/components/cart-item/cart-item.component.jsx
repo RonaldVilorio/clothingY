@@ -1,5 +1,5 @@
 import {
-    cartItemContainer,
+    CartItemContainer,
     ItemDetails,
     Name,
     Image} from './cart-item.styles'
@@ -7,13 +7,13 @@ import {
 const CartItem = ({cartItem}) => {
     const {name,quantity,imageUrl,price} = cartItem   
     return ( 
-        <cartItemContainer>
+        <CartItemContainer>
             <Image src={imageUrl} alt={name} />
             <ItemDetails>
                 <Name>{name}</Name>
                 <span className='price'>{quantity} X ${price}</span>
             </ItemDetails>
-        </cartItemContainer>
+        </CartItemContainer>
      );
 }
  
