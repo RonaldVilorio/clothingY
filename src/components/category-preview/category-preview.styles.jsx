@@ -18,12 +18,3 @@ export const Preview = styled.div`
     column-gap: 20px; 
 
 `
-// .category-preview-container { 
-   
-//     .title { 
-        
-//     } 
-//     .preview { 
-        
-//     } 
-// }

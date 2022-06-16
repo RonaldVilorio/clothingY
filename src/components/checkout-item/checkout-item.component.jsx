@@ -3,11 +3,9 @@ import { CartDropDownContext } from '../../contexts/cart-drop-down.context';
 import {
     CheckoutItemContainer,
     ImageContainer,
-    Image,
-    Name,
+    BaseSpan,
     Quantity,
     Arrow,
-    Price,
     Value,
     RemoveButton
 }from './checkout-item.styles'
@@ -23,9 +21,9 @@ const CheckoutItem = ({cartItem}) => {
         return ( 
             <CheckoutItemContainer>
                 <ImageContainer>
-                    <Image src={imageUrl} alt={name} />
+                    <img src={imageUrl} alt={name} />
                 </ImageContainer>
-                <Name>{name}</Name>
+                <BaseSpan>{name}</BaseSpan>
                 <Quantity>
                     <Arrow onClick={removeItemHandler}>
                         &#10094;
@@ -35,7 +33,7 @@ const CheckoutItem = ({cartItem}) => {
                         &#10095;
                     </Arrow>
                 </Quantity>
-                <Price>{price}</Price>
+                <BaseSpan>{price}</BaseSpan>
                 <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
             </CheckoutItemContainer>
          );
