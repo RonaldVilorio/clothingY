@@ -3,11 +3,11 @@ export const CartItemContainer = styled.div`
     width: 100%; 
     display: flex; 
     height: 80px; 
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
+    img{
+        width: 30%; 
+    } 
 
-`
-export const Image = styled.img` 
-    width: 30%; 
 `
 export const ItemDetails = styled.div` 
     width: 70%; 
@@ -15,9 +15,9 @@ export const ItemDetails = styled.div`
     flex-direction: column; 
     align-items: flex-start; 
     justify-content: center; 
-    padding: 10px 20px; 
+    padding: 10px 20px;
+    span{
+        font-size:16px;
+    }
 
-`
-export const Name = styled.span`
-    font-size: 16px; 
 `
